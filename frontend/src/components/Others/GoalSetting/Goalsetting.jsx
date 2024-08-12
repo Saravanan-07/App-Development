@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuth } from '../../../context/AuthContext'; // Import the useAuth hook
 import '../../../assets/css/Others/GoalSetting/Goalsetting.css';
 
 const GoalsPage = () => {
   const [goals, setGoals] = useState([]);
   const [newGoal, setNewGoal] = useState({ name: '', description: '', targetDate: '' });
 
+  const { userId } = useAuth(); // Get userId from AuthContext
+
   // Fetch goals from backend
   useEffect(() => {
-    const fetchGoals = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/goals/user/1'); // Update with actual userId if needed
-        setGoals(response.data);
-      } catch (error) {
-        console.error('Error fetching goals:', error);
-      }
-    };
-    
-    fetchGoals();
-  }, []);
+    if (userId) {
+      const fetchGoals = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8080/goals/user/${userId}`);
+          setGoals(response.data);
+        } catch (error) {
+          console.error('Error fetching goals:', error);
+        }
+      };
+      fetchGoals();
+    }
+  }, [userId]);
 
   const handleAddGoal = async () => {
     const dateDiff = Math.abs(new Date(newGoal.targetDate).getTime() - new Date().getTime());
@@ -26,14 +30,16 @@ const GoalsPage = () => {
     const type = days <= 30 ? 'Short Term' : 'Long Term';
 
     try {
-      const response = await axios.post('http://localhost:8080/goals/user/1', {
-        ...newGoal,
-        target_date: newGoal.targetDate, // Ensure correct field name for target_date
-        type,
-      }); // Update with actual userId if needed
+      if (userId) {
+        const response = await axios.post(`http://localhost:8080/goals/user/${userId}`, {
+          ...newGoal,
+          target_date: newGoal.targetDate, // Ensure correct field name for target_date
+          type,
+        });
 
-      setGoals([...goals, response.data]);
-      setNewGoal({ name: '', description: '', targetDate: '' });
+        setGoals([...goals, response.data]);
+        setNewGoal({ name: '', description: '', targetDate: '' });
+      }
     } catch (error) {
       console.error('Error adding goal:', error);
     }
@@ -41,8 +47,10 @@ const GoalsPage = () => {
 
   const handleDeleteGoal = async (goalId) => {
     try {
-      await axios.delete(`http://localhost:8080/goals/${goalId}/user/1`); // Update with actual userId if needed
-      setGoals(goals.filter(goal => goal.id !== goalId));
+      if (userId) {
+        await axios.delete(`http://localhost:8080/goals/${goalId}/user/${userId}`);
+        setGoals(goals.filter(goal => goal.id !== goalId));
+      }
     } catch (error) {
       console.error('Error deleting goal:', error);
     }

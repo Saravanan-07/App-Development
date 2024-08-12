@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,5 +33,12 @@ public class GoalController {
     public ResponseEntity<Void> deleteGoal(@PathVariable Long goalId, @PathVariable Long userId) {
         goalService.deleteGoal(userId, goalId);
         return ResponseEntity.noContent().build();
+    }
+   
+    
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Goal>> getGoalsByUser(@PathVariable Long userId) {
+        List<Goal> userGoals = goalService.getGoalsByUser(userId);
+        return ResponseEntity.ok(userGoals);
     }
 }

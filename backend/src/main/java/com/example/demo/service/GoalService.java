@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +38,10 @@ public class GoalService {
         } else {
             throw new UnauthorizedException("User is not authorized to delete this goal");
         }
+    }
+
+    public List<Goal> getGoalsByUser(Long userId) {
+        // Fetch the list of goals associated with the user from the repository
+        return goalRepository.findByUserId(userId);
     }
 }
