@@ -1,0 +1,155 @@
+.dietrows {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10%;
+}
+
+.subcard {
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.subcardulli{
+    font-size: 17px;
+    margin-left: 3px;
+    list-style: none;
+}
+
+.subcardul{
+    font-size: 15px;
+    padding: 0;
+}
+
+.headdd{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    background-color: black;
+    padding: 15px;
+    color: white;
+}
+
+.filter-dropdown {
+    margin-top: 72px;
+    margin-left: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.search-filter-container {
+    display: flex;
+    justify-content: center;
+}
+
+.graminput {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.total-nutrients {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.total-nutrients ul li {
+    list-style: none;
+    font-size: 20px;
+}
+
+.tothead {
+    font-size: 30px;
+    color: black;
+}
+
+.meals-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.adddd{
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.adddd:hover {
+    background-color: white;
+    color: black;
+}
+
+.meal ul li {
+    list-style: none;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.mealbox {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    margin-right: 100px;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin-bottom: 50px;
+}
+
+.resetbtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.resetbtn button {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.resetbtn button:hover {
+    background-color: white;
+    color: black;
+}
+
+.typesofmeals {
+    background-color: black;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.remove {
+    font-size: 14px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.remove:hover {
+    background-color: white;
+    color: black;
+}
+
+.subcard .selected {
+    background-color: #f0f0f0;
+    border-color: black;
+}

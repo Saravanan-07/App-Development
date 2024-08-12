@@ -1,0 +1,116 @@
+.personalized-workouts {
+  font-family: 'Bebas Neue',sans-serif;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+}
+.personalized-workouts h2{
+  font-family: 'Manrope',sans-serif;
+}
+
+.workouts-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  color: black;
+}
+
+.workout-item {
+  min-width: 300px;
+  flex: 0 0 auto;
+  background-color: #75323253;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.workout-item h3 {
+  margin-bottom: 10px;
+}
+
+.workout-item p {
+  margin-bottom: 10px;
+}
+
+.workout-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.workout-item li {
+  margin-bottom: 5px;
+}
+.addworkoutformouter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(64, 60, 60, 0.826);
+  height: 600px;
+  width: 100%;
+}
+.add-workout-form {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-workout-form h3 {
+  color: #000000;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.add-workout-form input,
+.add-workout-form textarea {
+  width:400px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.add-workout-form input:focus,
+.add-workout-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-workout-form .exercise-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.add-workout-form button {
+  padding: 12px 20px;
+  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.532);
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #1e96fc;
+  color: white;
+  margin-top: 10px;
+  transition: 3s;
+}
+
+.add-workout-form button[type="button"] {
+  background-color: #1e96fc;
+}
+
+
+.add-workout-form button[type="button"]:hover {
+  background-color: #1e96fc;
+}
+
+.loading{
+  color: black;
+}

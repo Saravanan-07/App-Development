@@ -1,0 +1,145 @@
+html {
+    background-color: #e7e7e7;
+}
+
+.outermost {
+    font-family: 'Bebas Neue', sans-serif;
+    height: 100vh;
+}
+
+.outer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 1300px;
+    color: black;
+    margin-bottom: 200px;
+}
+
+.add-card-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.add-card-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    padding: 0.5rem 1rem; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: bold; 
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-card-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.outer {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1rem; 
+    padding: 0 1rem; 
+}
+
+.card-container {
+    width: 17rem; 
+    border-radius: 1rem;
+    box-shadow: 5px 5px 1px 2px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    background-color: white;
+    height: 420px;
+    overflow: hidden; 
+    transition: transform 0.3s; 
+}
+
+.card-container:hover {
+    transform: scale(1.05); 
+}
+
+.card-img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover; 
+    border-radius: 1rem 1rem 0 0;
+}
+
+.card-title, .card-description {
+    margin: 0.5rem 1rem; 
+    text-align: center; 
+}
+
+.card-btn {
+    text-align: center;
+    width: 80%; 
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    margin: 1rem auto; 
+    display: block; 
+}
+
+.footer {
+    position: relative;
+    font-family: 'Manrope', 'Poppins', 'Kanit', 'Inter Tight', sans-serif;
+}
+
+
+.form-container {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+.form-container h2 {
+    margin-bottom: 1rem;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-container input,textarea {
+    width: 90%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.form-container textarea {
+    height: 100px;
+    resize: vertical; 
+}
+
+.form-submit-btn {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 0.5rem 1rem; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: bold; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.form-submit-btn:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); 
+}

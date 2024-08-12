@@ -1,0 +1,97 @@
+
+  .App {
+    text-align: center;
+}
+.navbarcal
+{
+    background-color: #000;
+    color: #fff;
+    height: 70px;
+    padding-top: 30px;
+}
+.navbarbutcal
+{
+    cursor: pointer;
+}
+.App-header {
+    background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.containerrrr {
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.caloform{
+    display: flex;
+    margin-left: 400px;
+    width: 45%;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.formdiv {
+    margin-bottom: 15px;
+}
+
+.formlabelcalo {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.forminputcal{
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 90%; margin-bottom: 15px;
+}
+
+.formbutcal {
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #333;
+}
+
+.head1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 40px;
+    color: #000;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+p {
+    font-size: 18px;
+}

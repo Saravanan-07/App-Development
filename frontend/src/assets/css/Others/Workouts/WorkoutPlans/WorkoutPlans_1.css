@@ -1,0 +1,228 @@
+.slider-container {
+  width: 100%;
+  overflow-x: auto;  
+  white-space: nowrap; 
+  background-color: #1e1f21;  
+  padding: 10px 0;  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+  position: fixed;
+}
+.slider-navbar {
+  display: inline-block;
+}
+.navbar-list {
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex; 
+  flex-direction: row;
+}
+.navbar-item {
+  margin-right: 20px;
+}
+.navbar-item a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.navbar-item a:hover {
+  background-color: #fff;
+  color: #1e1f21; 
+}
+.navspace {
+  height: 100px;
+}
+.exercisecontainer {
+  height: 600px;
+  display: flex;
+  background-color: black;
+}
+.exerciseseparator {
+  height: 2px;
+  width: 100%;
+}
+.exercisetext {
+  width: 70%;
+  align-items: center;
+}
+.exercisetitle {
+  margin-top: 20%;
+  margin-bottom: 6%;
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;     
+}
+.exercisedesc {
+  margin-top: 1%;
+  margin-bottom: 6%;
+}
+.addexbut {
+  background-color: white;
+  border-radius: 20px;
+  height: 30px;
+  width: 150px;
+}
+.aerobicsimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url('../../../../images/Others/Workouts/Aerobicsimg.jpeg');
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.boxingimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Boxingimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.cyclingimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Cyclingimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.danceimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Danceimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.joggingimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Joggingimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.pilatesimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Pilatesimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.treadmillimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Tredmillimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.swimmingimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Swimmingimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.walkingimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Walkingimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.runningimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Runningimg.jpeg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+.yogaimg {
+  margin-top: 10%;
+  margin-left: 4%;
+  width: 30%;
+  background-image: url(../../../../images/Others/Workouts/Yogaimg.jpg);
+  background-size: cover;
+  height: 50%;
+  border-radius: 10px;
+}
+
+.popuppp{
+  display: none; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  z-index: 10; 
+  padding: 20px;
+  text-align: center;
+}
+
+.popup-headerrr{
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.popup-contenttt{
+  margin-bottom: 15px;
+}
+
+.popup-inputtt{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.popup-closee{
+  background-color: #1e1f21;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup-overlayy{
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+}
+
+.popup-visiblee{
+  display: block;
+}
+
+.popup-overlay-visiblee{
+  display: block;
+} 

@@ -1,0 +1,91 @@
+.maincls {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    height: 100vh;
+}
+.gobackwork
+{
+    background-color: #000;
+    color: #fff;
+    height: 70px;
+    padding-top: 30px;
+}
+.bdy {
+    background-color: #1e1f21;
+    color: #fff;
+}
+.wrapperr {
+    padding: 10px 50px;
+    margin-right: 50px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+}
+.cardarea {
+    padding: 10px 0;
+}
+.boxxx {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    height: 50vh;
+    flex: 0 0 auto;
+    margin-right: 25px;
+}
+.boxxarea {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.boxxximg {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.overlayyy {
+    height: 0;
+    width: 100%;
+    background: linear-gradient(transparent,#1c1c1c 58%);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s, padding 0.5s;
+}
+.overlayyhh {
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top: 80%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+.overlayyaa {
+    margin-top: 10px;
+    color: #262626;
+    text-decoration: none;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 50px;
+    text-align: center;
+    padding: 5px 15px;
+}
+.boxxx:hover img {
+    transform: scale(1.2);
+}
+.boxxx:hover .overlayyy {
+    height: 100%;
+    padding-left: 20px; 
+    padding-right: 20px;
+}

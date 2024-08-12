@@ -1,0 +1,121 @@
+.community-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.community-container li{
+  list-style-type: none;
+}
+
+.community-container h1 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+/* Tab buttons */
+.community-tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.community-tab {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f7f7f7;
+  margin-right: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.community-tab.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.community-tab:hover:not(.active) {
+  background-color: #e6e6e6;
+}
+
+/* Input and textarea container styling */
+.community-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.community-input,
+.community-textarea {
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.community-textarea {
+  height: 100px;
+}
+
+/* Button styling */
+.community-button {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.community-button-post {
+  background-color: #0069d9;
+}
+
+.community-button-post:hover {
+  background-color: #0053a3;
+}
+
+.community-button-accept {
+  background-color: #218838;
+}
+
+.community-button-accept:hover {
+  background-color: #19692c;
+}
+
+/* Styling for challenge items */
+.community-challenge-item,
+.community-accepted-item {
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 18px;
+  transition: box-shadow 0.3s ease;
+}
+
+.community-challenge-item:hover,
+.community-accepted-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.community-challenge-item h2,
+.community-accepted-item h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.community-challenge-item p,
+.community-accepted-item p {
+  font-size: 14px;
+  color: #666;
+}

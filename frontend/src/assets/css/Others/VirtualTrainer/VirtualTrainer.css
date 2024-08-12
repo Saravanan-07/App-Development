@@ -1,0 +1,89 @@
+.trainers-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.trainer-item {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: calc(33.333% - 20px); 
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.5s ease;
+  box-sizing: border-box; 
+  min-width: 300px; 
+}
+
+
+.trainer-item:hover {
+  transform: perspective(1000px) rotateX(7deg) rotateY(7deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.trainer-item h2 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+
+.trainer-item p {
+  font-size: 1.2rem; 
+  color: #666;
+  margin: 5px 0;
+}
+
+
+.choose-trainer-btn {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.choose-trainer-btn:hover {
+  background-color: #2980b9;
+}
+
+
+#adph1 {
+  text-align: center;
+  color: #444;
+  margin-top: 20px;
+}
+
+
+.errmsgtr {
+  color: black;
+  text-align: center;
+  margin: 20px;
+}
+
+
+.trainer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.trainer-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}

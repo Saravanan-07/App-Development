@@ -1,0 +1,62 @@
+# Node.js (Frontend)
+frontend/node_modules/
+frontend/.env
+frontend/build/
+frontend/.next/
+frontend/dist/
+frontend/.cache/
+frontend/.DS_Store
+
+# Logs
+frontend/logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# IDE and Editors
+frontend/.idea/
+frontend/.vscode/
+
+# npm
+frontend/package-lock.json
+frontend/npm-debug.log
+frontend/yarn-error.log
+
+# MacOS
+frontend/.DS_Store
+
+# Spring Boot (Backend)
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/logs/
+backend/*.log
+backend/.env
+backend/.project
+backend/.classpath
+backend/.settings/
+backend/.factorypath
+
+# OS generated files
+*.DS_Store
+*.Thumbs.db
+
+# Java
+*.class
+*.war
+*.jar
+*.log
+
+# IDEs and Editors
+backend/.idea/
+backend/.vscode/
+backend/.project
+backend/.classpath
+backend/.settings/
+
+# Maven
+backend/pom.xml.tag
+backend/pom.xml.releaseBackup
+backend/pom.xml.versionsBackup
+backend/pom.xml.next
+backend/release.properties
+backend/target/

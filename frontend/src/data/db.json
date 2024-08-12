@@ -1,0 +1,187 @@
+{
+  "users": [
+    {
+      "id": "049b",
+      "username": "demouser",
+      "email": "demo@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "8b1b",
+      "username": "Saravanan",
+      "email": "saravanan@gmail.com",
+      "password": "Sarav@234"
+    },
+    {
+      "id": "837e",
+      "username": "demo2",
+      "email": "demo2@gmail.com",
+      "password": "demo12345678"
+    }
+  ],
+  "workouts": [
+    {
+      "id": "b9a7",
+      "name": "Chest Press",
+      "description": "The chest press is a classic upper-body strengthening exercise ",
+      "reps": "10",
+      "userId": "f0b8"
+    },
+    {
+      "id": "b9a7",
+      "name": "Chest Press",
+      "description": "The chest press is a classic upper-body strengthening exercise ",
+      "reps": "10",
+      "userId": "f0b8"
+    },
+    {
+      "id": "b9a7",
+      "name": "Chest Press",
+      "description": "The chest press is a classic upper-body strengthening exercise ",
+      "reps": "10",
+      "userId": "f0b8"
+    },
+    {
+      "id": "0154",
+      "name": "Squat",
+      "description": "Squats burn calories and might help you lose weight",
+      "reps": "3",
+      "userId": "f0b8"
+    },
+    {
+      "id": "c75f",
+      "name": "Squat",
+      "description": "Demo",
+      "reps": "10",
+      "userId": "049b"
+    }
+  ],
+  "admins": [
+    {
+      "id": "ad1",
+      "username": "Admin1",
+      "email": "admin@gmail.com",
+      "password": "admin1@gym"
+    },
+    {
+      "id": "ad2",
+      "username": "Admin2",
+      "email": "admin2@gmail.com",
+      "password": "Admin3@gym"
+    }
+  ],
+  "demovideodata": [
+    {
+      "id": "806e",
+      "title": "Banded Chop",
+      "description": "A variety of muscles are working during this exercise",
+      "src": "https://www.youtube.com/embed/ivziZev2BzA?si=t9DcNlyz8ZGXHF_i"
+    },
+    {
+      "id": "e318",
+      "title": "Banded Chop 2",
+      "description": "Advanced version of banded chop",
+      "src": "https://www.youtube.com/embed/zfYF2_-P_xU?si=Bhh1_cYiZf-llcBu"
+    },
+    {
+      "id": "e58d",
+      "title": "Half Kneeling KB",
+      "description": "Half Kneeling KB Low to High Chop",
+      "src": "https://www.youtube.com/embed/wPXdGwc0NTs?si=umSLS_T6FDDBFW0w"
+    },
+    {
+      "id": "f1a8",
+      "title": "Half Kneeling DB",
+      "description": "Half Kneeling DB Low to High Chop",
+      "src": "https://www.youtube.com/embed/qyM7NdixJzI?si=5CWOHYdf5o0o4DN1"
+    },
+    {
+      "id": "eec9",
+      "title": "Tall Kneeling KB",
+      "description": "Tall Kneeling KB Low to High Chop",
+      "src": "https://www.youtube.com/embed/mQvotoz6kqA?si=WqcX_SVBqm_aL3p4"
+    },
+    {
+      "id": "4b70",
+      "title": "Tall Kneeling DB",
+      "description": "Tall Kneeling DB Low to High Chop",
+      "src": "https://www.youtube.com/embed/2SchMMbHcdg?si=w2VmRA3IjKbUSk-E"
+    },
+    {
+      "id": "377c",
+      "title": "DB Windmill",
+      "description": "It's compound movement used to improve shoulder, core, and back stability.",
+      "src": "https://www.youtube.com/embed/EVLXzqAzAHI?si=SREUeMCCuVE5Clei"
+    },
+    {
+      "id": "ee15",
+      "title": "KB Windmill",
+      "description": "it is a training exercise that builds core strength and shoulder stability",
+      "src": "https://www.youtube.com/embed/3rtUK_jUv4s?si=dkYgziHUMMMoT1Ki"
+    },
+    {
+      "id": "b811",
+      "title": "DB Cross Body Clean",
+      "description": "It recruits all of your major muscle groups for a head-to-toe pump",
+      "src": "https://www.youtube.com/embed/2t4OL7E-vmI?si=6mjrWLjlLEOiAzr7"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "fb73",
+      "name": "demotrainer",
+      "email": "demotrainer@gmail.com",
+      "password": "demo1234"
+    },
+    {
+      "id": "fb74",
+      "name": "demotrainer",
+      "email": "demotrainer@gmail.com",
+      "password": "demo1234"
+    },
+    {
+      "id": "fb75",
+      "name": "demotrainer",
+      "email": "demotrainer@gmail.com",
+      "password": "demo1234"
+    },
+    {
+      "id": "fb76",
+      "name": "demotrainer",
+      "email": "demotrainer@gmail.com",
+      "password": "demo1234"
+    },
+    {
+      "id": "fb77",
+      "name": "demotrainer",
+      "email": "demotrainer@gmail.com",
+      "password": "demo1234"
+    },
+    {
+      "id": "fb78",
+      "name": "demotrainer",
+      "email": "demotrainer@gmail.com",
+      "password": "demo1234"
+    }
+  ],
+  "goals": [
+    {
+      "id": "1",
+      "userId": "049b",
+      "type": "long-term",
+      "description": "Swimming",
+      "target": "2",
+      "reminder": "Weekly",
+      "completed": true
+    },
+    {
+      "id": 1,
+      "userId": "049b",
+      "type": "long-term",
+      "description": "czXZsdfa",
+      "target": "5",
+      "reminder": "daily",
+      "completed": true
+    }
+  ]
+}
