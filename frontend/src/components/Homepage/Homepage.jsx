@@ -18,7 +18,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const Homepage = () => {
   const navigate = useNavigate();
-  const { user, admin,trainer, logout } = useAuth();
+  const { user, admin, logout } = useAuth();
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
   const onSubmit = async (event) => {
@@ -82,7 +82,6 @@ const Homepage = () => {
               {user || admin ? (
                 <>
                   {admin && <li><Link to='/AdminDashboard' id="Link">Admin Dashboard</Link></li>}
-                  {trainer && <li><Link to='/trainer/trainees' id="Link">My Trainess</Link></li>}
                   {user && <li><Link to='/Profile' id="Link">Profile</Link></li>}
                   <li><Link id="Link" onClick={handleLogoutClick}>Logout</Link></li>
                 </>
@@ -104,7 +103,7 @@ const Homepage = () => {
                 Nutrition and diet plans, and expert guidance.</p>
               {user || admin ? (
                 <>
-                  <h3>Welcome, {user ? user.username : admin.username}</h3>
+                  <h3>Welcome, {user ? user.name : admin.name}</h3>
                 </>
               ) : (
                 <div className='login_and_signup'>

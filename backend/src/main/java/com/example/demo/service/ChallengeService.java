@@ -10,6 +10,8 @@ import com.example.demo.model.User;
 import com.example.demo.repository.ChallengeRepository;
 import com.example.demo.repository.UserRepository;
 
+import java.util.List;
+
 @Service
 public class ChallengeService {
 
@@ -36,10 +38,19 @@ public class ChallengeService {
         User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
         Challenge challenge = challengeRepository.findById(challengeId).orElseThrow(() -> new ResourceNotFoundException("Challenge not found"));
 
-        if (challenge.getUsers().get(0).getId().equals(user.getId())) {
+        if (challenge.getUsers().contains(user)) {
             challengeRepository.delete(challenge);
         } else {
             throw new UnauthorizedException("User is not authorized to delete this challenge");
         }
+    }
+
+    public List<Challenge> getAllChallenges() {
+        return challengeRepository.findAll();
+    }
+
+    public List<Challenge> getChallengesByUser(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return challengeRepository.findByUsersContaining(user);
     }
 }

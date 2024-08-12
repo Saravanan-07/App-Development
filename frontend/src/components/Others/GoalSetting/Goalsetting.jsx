@@ -1,18 +1,51 @@
-import React, { useState } from 'react';
-import '../../../assets/css/Others/GoalSetting/Goalsetting.css'
-const GoalsPage = () => {
-  const [goals, setGoals] = useState([
-    { id: 1, name: 'Complete 10 push-ups in 1 minute', description: 'Get ready to sweat!', targetDate: '2024-03-16', type: '' },
-  ]);
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../../../assets/css/Others/GoalSetting/Goalsetting.css';
 
+const GoalsPage = () => {
+  const [goals, setGoals] = useState([]);
   const [newGoal, setNewGoal] = useState({ name: '', description: '', targetDate: '' });
 
-  const handleAddGoal = () => {
+  // Fetch goals from backend
+  useEffect(() => {
+    const fetchGoals = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/goals/user/1'); // Update with actual userId if needed
+        setGoals(response.data);
+      } catch (error) {
+        console.error('Error fetching goals:', error);
+      }
+    };
+    
+    fetchGoals();
+  }, []);
+
+  const handleAddGoal = async () => {
     const dateDiff = Math.abs(new Date(newGoal.targetDate).getTime() - new Date().getTime());
     const days = Math.ceil(dateDiff / (1000 * 3600 * 24));
     const type = days <= 30 ? 'Short Term' : 'Long Term';
-    setGoals([...goals, { id: goals.length + 1, name: newGoal.name, description: newGoal.description, targetDate: newGoal.targetDate, type }]);
-    setNewGoal({ name: '', description: '', targetDate: '' });
+
+    try {
+      const response = await axios.post('http://localhost:8080/goals/user/1', {
+        ...newGoal,
+        target_date: newGoal.targetDate, // Ensure correct field name for target_date
+        type,
+      }); // Update with actual userId if needed
+
+      setGoals([...goals, response.data]);
+      setNewGoal({ name: '', description: '', targetDate: '' });
+    } catch (error) {
+      console.error('Error adding goal:', error);
+    }
+  };
+
+  const handleDeleteGoal = async (goalId) => {
+    try {
+      await axios.delete(`http://localhost:8080/goals/${goalId}/user/1`); // Update with actual userId if needed
+      setGoals(goals.filter(goal => goal.id !== goalId));
+    } catch (error) {
+      console.error('Error deleting goal:', error);
+    }
   };
 
   const handleCountdown = (targetDate) => {
@@ -66,10 +99,13 @@ const GoalsPage = () => {
           <li key={goal.id} className="goal-item">
             <h2 className="goal-name">{goal.name}</h2>
             <p className="goal-description">{goal.description}</p>
-            <p className="goal-target-date">
-              Target Date: {goal.targetDate} ({goal.type})
-            </p>
-            <p className="goal-countdown">Countdown: {handleCountdown(goal.targetDate)}</p>
+            <p className="goal-countdown">Countdown: {handleCountdown(goal.target_date)}</p>
+            <button
+              onClick={() => handleDeleteGoal(goal.id)}
+              className="button"
+            >
+              Delete Goal
+            </button>
           </li>
         ))}
       </ul>

@@ -176,7 +176,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const Loginpage = () => {
   const navigate = useNavigate();
-  const { loginUser, loginAdmin, loginTrainer } = useAuth();
+  const { loginUser, loginAdmin} = useAuth();
 
   const [input, setInput] = useState({ email: '', password: '' });
   const [errormsg, setErrormsg] = useState('');
@@ -187,36 +187,31 @@ const Loginpage = () => {
 
   const fetchUserData = async () => {
     try {
-      const [userResponse, adminResponse, trainerResponse] = await Promise.all([
+      const [userResponse, adminResponse] = await Promise.all([
         axios.get('http://localhost:8080/user/users'),
         axios.get('http://localhost:8080/admin/admins'),
-        axios.get('http://localhost:8080/trainer/trainers')
       ]);
 
-      return { users: userResponse.data, admins: adminResponse.data, trainers: trainerResponse.data };
+      return { users: userResponse.data, admins: adminResponse.data};
     } catch (error) {
       console.error('Error fetching data:', error);
       setErrormsg('Error fetching user, admin, or trainer data');
-      return { users: [], admins: [], trainers: [] };
+      return { users: [], admins: []};
     }
   };
 
   const validateCredentials = async () => {
-    const { users, admins, trainers } = await fetchUserData();
+    const { users, admins} = await fetchUserData();
     const user = users.find(user => user.email === input.email && user.password === input.password);
     const admin = admins.find(admin => admin.email === input.email && admin.password === input.password);
-    const trainer = trainers.find(trainer => trainer.email === input.email && trainer.password === input.password);
-
     if (user) {
       loginUser(user);
       navigate('/');
     } else if (admin) {
       loginAdmin(admin);
       navigate('/');
-    } else if (trainer) {
-      loginTrainer(trainer);
-      navigate('/');
-    } else {
+    }
+    else {
       setErrormsg('Invalid email or password');
     }
   };

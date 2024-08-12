@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Challenge;
 import com.example.demo.model.ExerciseVideo;
 import com.example.demo.model.Trainer;
 import com.example.demo.model.User;
 import com.example.demo.model.WorkoutPlan;
+import com.example.demo.service.ChallengeService;
 import com.example.demo.service.UserService;
 
 import java.util.List;
@@ -19,6 +21,8 @@ public class UserController {
     
     @Autowired
     private UserService userService;
+    @Autowired
+    private ChallengeService challengeService;
 
     @GetMapping("/users")
     public List<User> getAllUsers() {
@@ -56,17 +60,11 @@ public class UserController {
         return new ResponseEntity<>(exercises, HttpStatus.OK);
     }
 
-    // //add workout plan for user
-    // @PostMapping("/{userId}/workoutPlans")
-    // public WorkoutPlan addWorkoutPlanToUser(@PathVariable Long userId, @RequestBody WorkoutPlan workoutPlan) {
-    //     return userService.addWorkoutPlanToUser(userId, workoutPlan);
-    // }
-
-    // //list the workout plans of user
-    // @GetMapping("/{userId}/workoutPlans")
-    // public List<WorkoutPlan> getWorkoutPlansForUser(@PathVariable Long userId) {
-    //     return userService.getWorkoutPlansForUser(userId);
-    // }
+     @PostMapping("/userpost/{userId}")
+    public ResponseEntity<Challenge> postChallenge(@PathVariable Long userId, @RequestBody Challenge challenge) {
+        Challenge savedChallenge = challengeService.postChallenge(userId, challenge);
+        return ResponseEntity.ok(savedChallenge);
+    }
 
 
     //choosing a trainer by user

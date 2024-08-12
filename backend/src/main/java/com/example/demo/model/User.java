@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -32,6 +33,7 @@ public class User {
     
     @ManyToOne
     @JoinColumn(name = "nutrition_plan_id")
+    @JsonIgnore
     private NutritionPlan nutritionPlan;
 
     

@@ -1,36 +1,102 @@
-import React, { useState } from 'react';
-import '../../../assets/css/Others/Community/Community.css'
-const CommunityPage = () => {
-  const [challenges, setChallenges] = useState([
-    { id: 1, title: 'Complete 10 push-ups in 1 minute', description: 'Get ready to sweat!', acceptedBy: [] },
-    { id: 2, title: 'Run 5 kilometers in 30 minutes', description: 'Show us your endurance!', acceptedBy: [] },
-  ]);
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../../../assets/css/Others/Community/Community.css';
+import { useAuth } from '../../../context/AuthContext';
 
+const CommunityPage = () => {
+  const { userId } = useAuth();
+  const [challenges, setChallenges] = useState([]);
   const [newChallenge, setNewChallenge] = useState({ title: '', description: '' });
   const [acceptedChallenges, setAcceptedChallenges] = useState([]);
-  const [activeSection, setActiveSection] = useState('postChallenges'); // State to control active section
+  const [activeSection, setActiveSection] = useState('postChallenges');
 
-  const handlePostChallenge = () => {
-    setChallenges([...challenges, { id: challenges.length + 1, title: newChallenge.title, description: newChallenge.description, acceptedBy: [] }]);
-    setNewChallenge({ title: '', description: '' });
+  useEffect(() => {
+    fetchChallenges();
+    fetchAcceptedChallenges(); // Fetch accepted challenges on component mount
+  }, [userId]); // Dependency on userId to refetch when userId changes
+
+  const fetchChallenges = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/challenges');
+      // Ensure the data is an array
+      if (Array.isArray(response.data)) {
+        setChallenges(response.data);
+      } else {
+        console.error('Expected an array but got:', response.data);
+        setChallenges([]);
+      }
+    } catch (error) {
+      console.error('Error fetching challenges:', error);
+      setChallenges([]);
+    }
   };
 
-  const handleAcceptChallenge = (challenge) => {
-    setAcceptedChallenges([...acceptedChallenges, challenge]);
-    setChallenges(challenges.map((c) => c.id === challenge.id ? { ...c, acceptedBy: [...c.acceptedBy, 'You'] } : c));
+  const fetchAcceptedChallenges = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/challenges/user/${userId}`);
+      // Ensure the data is an array
+      if (Array.isArray(response.data)) {
+        setAcceptedChallenges(response.data);
+      } else {
+        console.error('Expected an array but got:', response.data);
+        setAcceptedChallenges([]);
+      }
+    } catch (error) {
+      console.error('Error fetching accepted challenges:', error);
+      setAcceptedChallenges([]);
+    }
+  };
+
+  const handlePostChallenge = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:8080/challenges/userpost/${userId}`, 
+        newChallenge, // Send JSON directly
+        {
+          headers: {
+            'Content-Type': 'application/json' // Specify content type
+          }
+        }
+      );
+  
+      if (response.data && response.data.id) {
+        setChallenges([...challenges, response.data]);
+        setNewChallenge({ title: '', description: '' });
+      } else {
+        console.error('Unexpected response format:', response.data);
+      }
+    } catch (error) {
+      console.error('Error posting challenge:', error.response ? error.response.data : error.message);
+    }
+  };
+
+  const handleAcceptChallenge = async (challenge) => {
+    try {
+      const response = await axios.put(`http://localhost:8080/challenges/${challenge.id}/user/${userId}`);
+      if (response.data && response.data.id) {
+        fetchAcceptedChallenges(); // Refresh accepted challenges after accepting a new one
+        setChallenges(challenges.map((c) =>
+          c.id === challenge.id ? { ...c, acceptedBy: [...(c.acceptedBy || []), 'You'] } : c
+        ));
+      } else {
+        console.error('Unexpected response format:', response.data);
+      }
+    } catch (error) {
+      console.error('Error accepting challenge:', error.response ? error.response.data : error.message);
+    }
   };
 
   return (
     <div className="community-container">
       <h1>Community Challenges</h1>
       <div className="community-tabs">
-        <button 
+        <button
           className={`community-tab ${activeSection === 'postChallenges' ? 'active' : ''}`}
           onClick={() => setActiveSection('postChallenges')}
         >
           Post & View Challenges
         </button>
-        <button 
+        <button
           className={`community-tab ${activeSection === 'acceptedChallenges' ? 'active' : ''}`}
           onClick={() => setActiveSection('acceptedChallenges')}
         >
@@ -59,16 +125,20 @@ const CommunityPage = () => {
             </button>
           </div>
           <ul>
-            {challenges.map((challenge) => (
-              <li key={challenge.id} className="community-challenge-item">
-                <h2>{challenge.title}</h2>
-                <p>{challenge.description}</p>
-                <p>Accepted by: {challenge.acceptedBy.join(', ')}</p>
-                <button onClick={() => handleAcceptChallenge(challenge)} className="community-button community-button-accept">
-                  Accept Challenge
-                </button>
-              </li>
-            ))}
+            {challenges.length > 0 ? (
+              challenges.map((challenge) => (
+                <li key={challenge.id} className="community-challenge-item">
+                  <h2>{challenge.title}</h2>
+                  <p>{challenge.description}</p>
+                  <p>Accepted by: {challenge.acceptedBy ? challenge.acceptedBy.join(', ') : 'None'}</p>
+                  <button onClick={() => handleAcceptChallenge(challenge)} className="community-button community-button-accept">
+                    Accept Challenge
+                  </button>
+                </li>
+              ))
+            ) : (
+              <p>No challenges available.</p>
+            )}
           </ul>
         </div>
       )}
@@ -76,12 +146,16 @@ const CommunityPage = () => {
       {activeSection === 'acceptedChallenges' && (
         <div className="community-accepted-section">
           <ul>
-            {acceptedChallenges.map((challenge) => (
-              <li key={challenge.id} className="community-accepted-item">
-                <h2>{challenge.title}</h2>
-                <p>{challenge.description}</p>
-              </li>
-            ))}
+            {acceptedChallenges.length > 0 ? (
+              acceptedChallenges.map((challenge) => (
+                <li key={challenge.id} className="community-accepted-item">
+                  <h2>{challenge.title}</h2>
+                  <p>{challenge.description}</p>
+                </li>
+              ))
+            ) : (
+              <p>No accepted challenges.</p>
+            )}
           </ul>
         </div>
       )}
