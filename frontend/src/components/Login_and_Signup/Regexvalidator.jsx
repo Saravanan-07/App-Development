@@ -1,6 +1,5 @@
 const emailvalidator=(email)=>{
-    var emailregex= /^[^\s@]+@[^\s@]+$/;
-    return emailregex.test(email)
+    return email.length>=1;
 }
 
 const passwordvalidator=(password)=>{

@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.model.User;
+import com.example.demo.model.AppUser;
 import com.example.demo.model.WorkoutPlan;
 import com.example.demo.service.UserService;
 import com.example.demo.service.WorkoutPlanService;
@@ -23,8 +23,8 @@ public class WorkoutPlanController {
     private UserService userService;
 
     @PostMapping("/user/{userId}/add/{workoutPlanId}")
-    public ResponseEntity<User> addWorkoutPlanToUser(@PathVariable Long userId, @PathVariable Long workoutPlanId) {
-        User user = userService.addWorkoutPlanToUser(userId, workoutPlanId);
+    public ResponseEntity<AppUser> addWorkoutPlanToUser(@PathVariable Long userId, @PathVariable Long workoutPlanId) {
+        AppUser user = userService.addWorkoutPlanToUser(userId, workoutPlanId);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -41,7 +41,6 @@ public class WorkoutPlanController {
         List<WorkoutPlan> workoutPlans = workoutPlanService.getAllWorkoutPlans();
         return new ResponseEntity<>(workoutPlans, HttpStatus.OK);
     }
-
     
     //deleting a workout plan
     @DeleteMapping("/{userId}/workoutPlans/{workoutPlanId}")

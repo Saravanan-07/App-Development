@@ -7,7 +7,7 @@ const GoalsPage = () => {
   const [goals, setGoals] = useState([]);
   const [newGoal, setNewGoal] = useState({ name: '', description: '', targetDate: '' });
 
-  const { userId } = useAuth(); // Get userId from AuthContext
+  const { userId , admin} = useAuth(); // Get userId from AuthContext
 
   // Fetch goals from backend
   useEffect(() => {
@@ -21,8 +21,12 @@ const GoalsPage = () => {
         }
       };
       fetchGoals();
-    }
-  }, [userId]);
+  }
+}, [userId]);
+
+  if(admin) {
+    return (<>Log in as a user to post goals</>);
+  }
 
   const handleAddGoal = async () => {
     const dateDiff = Math.abs(new Date(newGoal.targetDate).getTime() - new Date().getTime());

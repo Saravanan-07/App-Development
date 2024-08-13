@@ -34,7 +34,7 @@ public class Trainer {
 
     @OneToMany(mappedBy = "trainer")
     @JsonManagedReference
-    private List<User> users;
+    private List<AppUser> users;
 
     public Long getId() {
         return id;
@@ -60,11 +60,11 @@ public class Trainer {
         this.email = email;
     }
 
-    public List<User> getUsers() {
+    public List<AppUser> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<AppUser> users) {
         this.users = users;
     }
 
@@ -74,7 +74,5 @@ public class Trainer {
 
     public void setExpertise(String expertise) {
         this.expertise = expertise;
-    }
-
-    
+    } 
 }

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Trainer;
-import com.example.demo.model.User;
+import com.example.demo.model.AppUser;
 import com.example.demo.service.TrainerService;
 
 @RestController
@@ -33,7 +33,7 @@ public class TrainerController {
 
     //to view the list of users for the trainer
     @GetMapping("/{trainerId}/users")
-    public ResponseEntity<List<User>> getUsersByTrainer(@PathVariable Long trainerId) {
+    public ResponseEntity<List<AppUser>> getUsersByTrainer(@PathVariable Long trainerId) {
         return new ResponseEntity<>(trainerService.getUsersByTrainer(trainerId), HttpStatus.OK);
     }
 

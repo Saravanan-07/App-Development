@@ -4,7 +4,7 @@ import '../../../assets/css/Others/Community/Community.css';
 import { useAuth } from '../../../context/AuthContext';
 
 const CommunityPage = () => {
-  const { userId } = useAuth();
+  const { userId, admin } = useAuth();
   const [challenges, setChallenges] = useState([]);
   const [newChallenge, setNewChallenge] = useState({ title: '', description: '' });
   const [acceptedChallenges, setAcceptedChallenges] = useState([]);
@@ -69,6 +69,10 @@ const CommunityPage = () => {
       console.error('Error posting challenge:', error.response ? error.response.data : error.message);
     }
   };
+
+  if(admin) {
+    return (<>Log in as a user to post and accept challenges</>);
+  }
 
   const handleAcceptChallenge = async (challenge) => {
     try {

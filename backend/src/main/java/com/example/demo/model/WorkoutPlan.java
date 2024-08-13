@@ -18,7 +18,7 @@ public class WorkoutPlan {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference
-    private User user;
+    private AppUser user;
 
     public String getImg_url() {
         return img_url;
@@ -76,11 +76,11 @@ public class WorkoutPlan {
         this.description = description;
     }
 
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
 }

@@ -59,6 +59,7 @@ const Homepage = () => {
     setShowLogoutPopup(false);
   };
 
+
   return (
     <div>
       {showLogoutPopup && (
@@ -78,11 +79,13 @@ const Homepage = () => {
             <div className='navbarrrrr'><ul>
               <li><a href='#aboutpage' id="Link">About</a></li>
               <li><a href='#cont' id="Link">Contact</a></li>
-              <li><a href='#serv' id="Link">Services</a></li>
+              <li><a href='#serv2' id="Link">Services</a></li>
               {user || admin ? (
                 <>
                   {admin && <li><Link to='/AdminDashboard' id="Link">Admin Dashboard</Link></li>}
-                  {user && <li><Link to='/Profile' id="Link">Profile</Link></li>}
+                  {admin && <li><Link to='/workouts' id="Link">Add Workouts</Link></li>}
+                  {admin && <li><Link to='/demos' id="Link">Add Demo Videos</Link></li>}
+                  {/*{user && <li><Link to='/Profile' id="Link">Profile</Link></li>}*/}
                   <li><Link id="Link" onClick={handleLogoutClick}>Logout</Link></li>
                 </>
               ) : (
@@ -103,7 +106,7 @@ const Homepage = () => {
                 Nutrition and diet plans, and expert guidance.</p>
               {user || admin ? (
                 <>
-                  <h3>Welcome, {user ? user.name : admin.name}</h3>
+                  <h3>Welcome, {user ? user.username : admin.name}</h3>
                 </>
               ) : (
                 <div className='login_and_signup'>
@@ -114,70 +117,64 @@ const Homepage = () => {
             </div>
           </div>
 
-        <div className="contentboxxxx dummy">
-          <div className="dummyimg">
-            <div className="imginsidedummy"></div>
-            <h1>Your mind is your strongest muscle.</h1>     
-          </div>
-        </div>
 
-<div className="contentboxm">
+{/* <div className="contentboxm">
     <div className="contentbox-one-1 box2" id='serv'>
-        <h1>Unlock Your Fitness Potential</h1>
-          <div className="maincls">
+    <h1>Unlock Your Fitness Potential</h1>
+    <div className="maincls">
             <div className="bdy">
-                <div className="cardarea">
-                    <div className="wrapperr">
-                        <div className="boxxarea">
-                            <div className="boxxx">
-                                <img src={imgpw} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
+            <div className="cardarea">
+            <div className="wrapperr">
+            <div className="boxxarea">
+            <div className="boxxx">
+            <img src={imgpw} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
                                 <div className="overlayyy">
                                     <h3 className='overlayyhh'>Personalized Workouts</h3>
                                     <button onClick={() => { navigate('/workouts') }} className='overlayybtt'>View</button>
                                 </div>
-                            </div>
-                            <div className="boxxx">
-                                <img src={imged} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
-                                <div className="overlayyy">
-                                    <h3 className='overlayyhh'>Exercise Demos</h3>
-                                    <button onClick={() => { navigate('/demos') }} className='overlayybtt'>View</button>
                                 </div>
+                            <div className="boxxx">
+                            <img src={imged} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
+                            <div className="overlayyy">
+                            <h3 className='overlayyhh'>Exercise Demos</h3>
+                            <button onClick={() => { navigate('/demos') }} className='overlayybtt'>View</button>
+                            </div>
                             </div>
                             <div className="boxxx">
-                                <img src={imgnd} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
+                            <img src={imgnd} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
                                 <div className="overlayyy">
-                                    <h3 className='overlayyhh'>Nutrition and diet</h3>
+                                <h3 className='overlayyhh'>Nutrition and diet</h3>
                                     <button onClick={() => { navigate('/nutrients') }} className='overlayybtt'>View</button>
                                 </div>
                             </div>
                             <div className="boxxx">
-                                <img src={imgvt} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
+                            <img src={imgvt} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
                                 <div className="overlayyy">
-                                    <h3 className='overlayyhh'>Virtual Trainer</h3>
+                                <h3 className='overlayyhh'>Virtual Trainer</h3>
                                     <button onClick={() => { navigate('/virtualtrainer') }} className='overlayybtt'>View</button>
-                                </div>
-                            </div>
+                                    </div>
+                                    </div>
                             <div className="boxxx">
-                                <img src={imgpg} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
-                                <div className="overlayyy">
+                            <img src={imgpg} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
+                            <div className="overlayyy">
                                     <h3 className='overlayyhh'>Goal Setting</h3>
                                     <button onClick={() => { navigate('/goals') }} className='overlayybtt'>View</button>
                                 </div>
-                            </div>
-                            <div className="boxxx">
-                                <img src={imgcc} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
-                                <div className="overlayyy">
-                                    <h3 className='overlayyhh'>Community</h3>
-                                    <button onClick={() => { navigate('/community') }} className='overlayybtt'>View</button>
                                 </div>
+                            <div className="boxxx">
+                            <img src={imgcc} alt="" className='boxxximg' style={{height:'380px',width:'400px'}}/>
+                            <div className="overlayyy">
+                            <h3 className='overlayyhh'>Community</h3>
+                            <button onClick={() => { navigate('/community') }} className='overlayybtt'>View</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
         </div>
-    </div> 
-</div>
+        </div> 
+</div> */}
 
 <section class="intro" id='aboutpage'>
         <h2>Welcome to Our Fitness Hub</h2>
@@ -185,43 +182,43 @@ const Homepage = () => {
         <h3>Our services include</h3>
     </section>
        
-<section class="feaatures"> 
-        <div class="feaature">
+<section class="feaatures" id='serv2'> 
+        <div class="feaature" onClick={()=>{navigate('/workouts')}}>
             <div class="icoon">
                 <img src={pabtg1}  alt="Customised Workout Plans"/>
             </div>
             <h3 className='feeh3'>Customised Workout Schedule</h3>
             <p className='feep'>A customized exercise schedule will take your schedule and your requirements into account and work around those issues.</p>
         </div>
-        <div class="feaature">
+        <div class="feaature" onClick={()=>{navigate('/demos')}}>
             <div class="icoon">
                 <img src={pabtg2}  alt="Exercise demos"/>
             </div>
             <h3 className='feeh3'>Exercise demos</h3>
             <p className='feep'> This page provides a series of video tutorials that illustrate different types of workouts for user reference.</p>
         </div>
-        <div class="feaature">
+        <div class="feaature" onClick={()=>{navigate('/nutrients')}}>
             <div class="icoon">
                 <img src={pabtg3}  alt="Nutrition Guidance"/>
             </div>
             <h3 className='feeh3'>Nutrition Guidance</h3>
             <p className='feep'>Our experts provide comprehensive nutrition advice to help you fuel your body and achieve your fitness goals.</p>
         </div>
-        <div class="feaature">
+        <div class="feaature" onClick={()=>{navigate('/virtualtrainer')}}>
             <div class="icoon">
                 <img src={pabtg4} alt="Experienced Trainers"/>
             </div>
             <h3 className='feeh3'>Experienced Trainers</h3>
             <p className='feep'>Our team of certified trainers are dedicated to helping you achieve your fitness objectives through personalized guidance and support.</p>
         </div>
-        <div class="feaature">
+        <div class="feaature" onClick={()=>{navigate('/goals')}}>
             <div class="icoon">
                 <img src={pabtg5} alt="Set personal goals"/>
             </div>
             <h3 className='feeh3'>Set your personal goals</h3>
             <p className='feep'>Goal setting involves the development of an action plan designed in order to motivate and guide a person or group toward a goal.</p>
         </div>
-        <div class="feaature">
+        <div class="feaature" onClick={()=>{navigate('/community')}}>
             <div class="icoon">
                 <img src={pabtg6} alt="Welcoming Community"/>
             </div>
@@ -230,6 +227,12 @@ const Homepage = () => {
         </div>
     </section>
 
+        {/* <div className="contentboxxxx dummy">
+          <div className="dummyimg">
+            <div className="imginsidedummy"></div>
+            <h1>Your mind is your strongest muscle.</h1>     
+          </div>
+        </div> */}
 
 
 

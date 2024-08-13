@@ -48,6 +48,15 @@ export default function Component() {
     }
   }, [userId, admin]);
 
+  const fetchWorkouts = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/workoutPlans');
+      setAllPredefinedWorkouts(response.data);
+    } catch (error) {
+      console.error('Error fetching workouts:', error);
+    }
+  };
+
   const calculateBMI = (e) => {
     e.preventDefault();
     if (height && weight) {
@@ -80,6 +89,7 @@ export default function Component() {
         reps: '',
         range_value: '',
       });
+      fetchWorkouts();
     } catch (error) {
       setErrormsg('Error adding workout. Please try again.');
       setSuccessmsg('');
@@ -110,6 +120,7 @@ export default function Component() {
       // Fetch updated user workouts
       const response = await axios.get(`http://localhost:8080/workoutPlans/user/${userId}`);
       setUserWorkouts(response.data);
+      
     } catch (error) {
       setErrormsg('Error deleting workout from your list. Please try again.');
       setSuccessmsg('');
@@ -298,7 +309,7 @@ function WorkoutCard({ workout, isUserWorkout, onAddToMyWorkouts, onDelete }) {
       <p className="workout-bmi-range">Recommended BMI: {workout.range_value}</p>
       {isUserWorkout ? (
         <button className="delete-workout-button" onClick={onDelete}>
-          Completed
+          Remove
         </button>
       ) : (
         <button className="add-workout-button" onClick={onAddToMyWorkouts}>
