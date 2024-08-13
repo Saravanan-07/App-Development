@@ -7,7 +7,7 @@ import '../../assets/css/Login_and_Signup/Signuppage.css';
 const Signuppage = () => {
   const navigate = useNavigate();
 
-  const [inputt, setInputt] = useState({ name: '', email: '', password: '' });
+  const [inputt, setInputt] = useState({ username: '', email: '', password: '' });
   const [errmsg, setErrmsg] = useState('');
 
   const changeHandlerr = (e) => {
@@ -18,14 +18,15 @@ const Signuppage = () => {
     e.preventDefault();
     if (!emailvalidator(inputt.email)) {
       setErrmsg("Enter a valid email id");
-    } else if (!usernamevalidator(inputt.name)) {
+    } else if (!usernamevalidator(inputt.username)) {
       setErrmsg("Enter a valid username");
     } else if (!passwordvalidator(inputt.password)) {
       setErrmsg("Password must have a length of at least 8 characters");
     } else {
       try {
-        const response = await axios.post('http://localhost:8080/user/signup', {
-          name: inputt.name,
+        //const response = await axios.post('http://localhost:8080/user/signup', {
+        const response = await axios.post('http://localhost:8080/user/account/register', {
+          username: inputt.username,
           email: inputt.email,
           password: inputt.password,
         });
@@ -48,7 +49,7 @@ const Signuppage = () => {
       <h1 className='ltext'>Create a new account</h1><br/><br/>
       {errmsg && (<div style={{color:'red',backgroundColor:'black'}}>{errmsg}</div>)}
       <div className="inputdiv">
-        <input className='inputl' type='text' placeholder='Enter username' name='name' onChange={changeHandlerr} />
+        <input className='inputl' type='text' placeholder='Enter username' name='username' onChange={changeHandlerr} />
         <input className='inputl' type='email' placeholder='Enter email' name='email' onChange={changeHandlerr} />
         <input className='inputl' type='password' placeholder='Enter password' name='password' onChange={changeHandlerr} />
       </div>

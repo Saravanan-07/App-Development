@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.exception.UnauthorizedException;
 import com.example.demo.model.Challenge;
-import com.example.demo.model.User;
+import com.example.demo.model.AppUser;
 import com.example.demo.repository.ChallengeRepository;
 import com.example.demo.repository.UserRepository;
 
@@ -22,20 +22,20 @@ public class ChallengeService {
     private UserRepository userRepository;
 
     public Challenge postChallenge(Long userId, Challenge challenge) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        AppUser user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
         challenge.getUsers().add(user);
         return challengeRepository.save(challenge);
     }
 
     public Challenge addUserToChallenge(Long userId, Long challengeId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        AppUser user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
         Challenge challenge = challengeRepository.findById(challengeId).orElseThrow(() -> new ResourceNotFoundException("Challenge not found"));
         challenge.getUsers().add(user);
         return challengeRepository.save(challenge);
     }
 
     public void deleteChallenge(Long userId, Long challengeId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        AppUser user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
         Challenge challenge = challengeRepository.findById(challengeId).orElseThrow(() -> new ResourceNotFoundException("Challenge not found"));
 
         if (challenge.getUsers().contains(user)) {
@@ -50,7 +50,7 @@ public class ChallengeService {
     }
 
     public List<Challenge> getChallengesByUser(Long userId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        AppUser user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found"));
         return challengeRepository.findByUsersContaining(user);
     }
 }

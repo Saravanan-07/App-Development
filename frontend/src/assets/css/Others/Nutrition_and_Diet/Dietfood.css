@@ -1,4 +1,4 @@
-.dietrows {
+/* .dietrows {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -152,4 +152,333 @@
 .subcard .selected {
     background-color: #f0f0f0;
     border-color: black;
-}
+} */
+/* Dietfood.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h2.headdd {
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  /* Meals Container */
+  .meals-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+  }
+  
+  .mealbox {
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .meal {
+    margin-bottom: 20px;
+  }
+  
+  .meal h3 {
+    color: #007bff;
+  }
+  
+  .meal ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .meal li {
+    margin-bottom: 10px;
+  }
+  
+  .meal .remove {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Total Intake Container */
+  .total-intake-container {
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .intake-header {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .intake-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .intake-content li {
+    margin-bottom: 5px;
+  }
+  
+  .reset-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Search and Filter */
+  .search-filter-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .filter-dropdown {
+    width: 200px;
+  }
+  
+  /* Diet Foods */
+  .dietfoods {
+    margin: 20px;
+  }
+  
+  .dietrows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .subcard {
+    margin: 10px;
+    flex: 1 1 230px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subcard img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .graminput {
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .nutrition-info p {
+    margin: 5px 0;
+  }
+  
+  .addbtn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .addbtn:hover {
+    background-color: #218838;
+  }
+  
+  /* Reset Button */
+  .resetbtn {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .resetbtn button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  
+
+/* 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h2.headdd {
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .meals-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+  }
+  
+  .mealbox {
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .meal {
+    margin-bottom: 20px;
+  }
+  
+  .meal h3 {
+    color: #007bff;
+  }
+  
+  .meal ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .meal li {
+    margin-bottom: 10px;
+  }
+  
+  .meal .remove {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .total-intake-container {
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .intake-header {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .intake-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .intake-content li {
+    margin-bottom: 5px;
+  }
+  
+  .reset-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .search-filter-container {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .filter-dropdown {
+    width: 200px;
+  }
+  
+  .dietfoods {
+    margin: 20px;
+  }
+  
+  .dietrows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .subcard {
+    margin: 10px;
+    flex: 1 1 230px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subcard img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .graminput {
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .nutrition-info p {
+    margin: 5px 0;
+  }
+  
+  .addbtn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .addbtn:hover {
+    background-color: #218838;
+  }
+  
+  .resetbtn {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .resetbtn button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+   */

@@ -30,31 +30,26 @@ public class ChallengeController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedChallenge);
     }
 
-    // @PostMapping(value = "/userpost/{userId}", consumes = "application/json", produces = "application/json")
-    // public ResponseEntity<Challenge> postChallenge(@PathVariable Long userId, @RequestBody Challenge challenge) {
-    //     Challenge savedChallenge = challengeService.postChallenge(userId, challenge);
-    //     return ResponseEntity.status(HttpStatus.CREATED).body(savedChallenge);
-    // }
-
+    
     @PutMapping("/{challengeId}/user/{userId}")
     public ResponseEntity<Challenge> addUserToChallenge(@PathVariable Long challengeId, @PathVariable Long userId) {
         Challenge updatedChallenge = challengeService.addUserToChallenge(userId, challengeId);
         return ResponseEntity.ok(updatedChallenge);
     }
-
-     @DeleteMapping("/{challengeId}/user/{userId}")
+    
+    @DeleteMapping("/{challengeId}/user/{userId}")
     public ResponseEntity<Void> deleteChallenge(@PathVariable Long challengeId, @PathVariable Long userId) {
         challengeService.deleteChallenge(userId, challengeId);
         return ResponseEntity.noContent().build();
     }
-
+    
     // New method to list all challenges
     @GetMapping
     public ResponseEntity<List<Challenge>> listChallenges() {
         List<Challenge> challenges = challengeService.getAllChallenges();
         return ResponseEntity.ok(challenges);
     }
-
+    
     // Method to list challenges for a specific user
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Challenge>> listChallengesByUser(@PathVariable Long userId) {

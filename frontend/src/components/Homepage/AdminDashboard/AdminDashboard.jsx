@@ -7,7 +7,7 @@ const AdminDashboard = () => {
   const { admin } = useAuth();
   const [users, setUsers] = useState([]);
   const [trainers, setTrainers] = useState([]);
-  const [newUser, setNewUser] = useState({ name: '', email: '', password: '' });
+  const [newUser, setNewUser] = useState({ username: '', email: '', password: '' });
   const [newTrainer, setNewTrainer] = useState({ name: '', email: '', password: '', expertise: '', img_url: '' });
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('users');
@@ -55,11 +55,11 @@ const AdminDashboard = () => {
   const handleAddUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/admin/users', newUser, {
+      const response = await axios.post('http://localhost:8080/user/account/register', newUser, {
         headers: { 'Content-Type': 'application/json' },
       });
       setUsers((prevState) => [...prevState, response.data]);
-      setNewUser({ name: '', email: '', password: '' });
+      setNewUser({ username: '', email: '', password: '' });
     } catch (error) {
       console.error('Error adding user:', error);
       setError('Error adding user. Please try again.');
@@ -134,9 +134,9 @@ const AdminDashboard = () => {
           <form onSubmit={handleAddUser} className="form">
             <input
               type="text"
-              name="name"
+              name="username"
               placeholder="User Name"
-              value={newUser.name}
+              value={newUser.username}
               onChange={handleUserChange}
               required
             />
@@ -161,7 +161,7 @@ const AdminDashboard = () => {
           <ul>
             {users.map((user) => (
               <li key={user.id} className="list-item">
-                {user.name} ({user.email})
+                {user.username} ({user.email})
                 <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
               </li>
             ))}

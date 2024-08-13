@@ -17,7 +17,7 @@ public class Goal {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonBackReference
-    private User user;
+    private AppUser user;
     
     public Long getId() {
         return id;
@@ -35,11 +35,11 @@ public class Goal {
         this.description = description;
     }
     
-    public User getUser() {
+    public AppUser getUser() {
         return user;
     }
     
-    public void setUser(User user) {
+    public void setUser(AppUser user) {
         this.user = user;
     }
     public String getName() {
@@ -57,8 +57,4 @@ public class Goal {
     public void setTarget_date(Date target_date) {
         this.target_date = target_date;
     }
-
-
-
-    
 }

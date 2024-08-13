@@ -9,16 +9,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Admin;
 import com.example.demo.model.ExerciseVideo;
-import com.example.demo.model.NutritionPlan;
 import com.example.demo.model.Trainer;
-import com.example.demo.model.User;
+import com.example.demo.model.AppUser;
 import com.example.demo.model.WorkoutPlan;
 import com.example.demo.service.AdminService;
 import com.example.demo.service.TrainerService;
@@ -61,7 +59,7 @@ public class AdminController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
+    public ResponseEntity<AppUser> updateUser(@RequestBody AppUser user) {
         return new ResponseEntity<>(adminService.updateUser(user), HttpStatus.OK);
     }
 
@@ -71,21 +69,12 @@ public class AdminController {
         return new ResponseEntity<>(adminService.updateTrainer(trainer), HttpStatus.OK);
     }
 
-    @PostMapping("/nutritionPlans")
-    public ResponseEntity<NutritionPlan> addNutritionPlan(@RequestBody NutritionPlan nutritionPlan) {
-        return new ResponseEntity<>(adminService.addNutritionPlan(nutritionPlan), HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/nutritionPlans/{nutritionPlanId}")
-    public ResponseEntity<Void> deleteNutritionPlan(@PathVariable Long nutritionPlanId) {
-        adminService.deleteNutritionPlan(nutritionPlanId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+    //}
     @PostMapping("/workoutPlans")
     public ResponseEntity<WorkoutPlan> addWorkoutPlan(@RequestBody WorkoutPlan workoutPlan) {
         return new ResponseEntity<>(workoutPlanService.addWorkoutPlan(workoutPlan), HttpStatus.CREATED);
     }
-
+    
     @DeleteMapping("/workoutPlans/{workoutPlanId}")
     public ResponseEntity<Void> deleteWorkoutPlan(@PathVariable Long workoutPlanId) {
         workoutPlanService.deleteWorkoutPlan(workoutPlanId);

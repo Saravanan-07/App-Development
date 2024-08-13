@@ -21,7 +21,7 @@ public class Challenge {
         inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     @JsonIgnore
-    private List<User> users = new ArrayList<>();
+    private List<AppUser> users = new ArrayList<>();
     
     public Long getId() {
         return id;
@@ -47,40 +47,11 @@ public class Challenge {
         this.description = description;
     }
     
-    public List<User> getUsers() {
+    public List<AppUser> getUsers() {
         return users;
     }
     
-    public void setUsers(List<User> users) {
+    public void setUsers(List<AppUser> users) {
         this.users = users;
     }  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*@ManyToMany(mappedBy = "challenges")
-private List<User> users;*/
