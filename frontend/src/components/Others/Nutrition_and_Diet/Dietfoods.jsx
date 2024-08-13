@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import CalorieCalculator from './CalorieCalculator';
+import { useAuth } from '../../../context/AuthContext';
 
 const cardData = [
     { id: 1, category: 'meats', title: 'Chicken Fry with oil', image: 'https://t4.ftcdn.net/jpg/06/28/27/79/360_F_628277923_qT6P3ITveUaKTvSDk6s9DYiuXkNviGII.jpg', carbs: 0, protein: 25, fats: 10, fiber: 0, calories: 220 },
@@ -34,6 +35,7 @@ const cardData = [
 ];
 
 const Dietfoods = () => {
+  const {admin} = useAuth();
   const [filter, setFilter] = useState('all');
   const [inputValues, setInputValues] = useState({});
   const [meals, setMeals] = useState({
@@ -55,6 +57,10 @@ const Dietfoods = () => {
       [itemId]: value,
     }));
   };
+
+  if(admin) {
+    return (<>Log in as a user calculate nutrition intake</>);
+  }
 
   const calculateTotal = (item) => {
     const grams = parseFloat(inputValues[item.id] || 0);
